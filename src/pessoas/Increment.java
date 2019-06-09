@@ -24,7 +24,7 @@ public class Increment {
 		System.out.println("\t\tCelular: ");
 		String celularPessoa = logar.nextLine();
 		
-		System.out.println("Agora vou precisar do seu endereço.");
+		System.out.println("Agora vou precisar do seu endereÃ§o.");
 
 		System.out.println("Estado: ");
 		String uf = logar.nextLine();
@@ -38,8 +38,8 @@ public class Increment {
 		System.out.println("Bairro: ");
 		String bairro = logar.nextLine();
 
-		System.out.println("Número: ");
-		Short numero = Short.parseShort(logar.nextLine());
+		System.out.println("NÃºmero: ");
+		String numero = logar.nextLine();
 
 		System.out.println("CEP: ");
 		String cep = logar.nextLine();
@@ -48,7 +48,7 @@ public class Increment {
 		String complemento = logar.nextLine();
 
 
-		System.out.println("Selecione o tipo de pessoa:" + "\n1 - Pessoa Física" + "\n2 - Pessoa Jurídica");
+		System.out.println("Selecione o tipo de pessoa:" + "\n1 - Pessoa FÃ­sica" + "\n2 - Pessoa JurÃ­dica");
 		int tipoPessoa = Integer.parseInt(logar.nextLine());
 		int fileCount = 0;
 		
@@ -76,7 +76,7 @@ public class Increment {
 			boolean finalizar = ArquivoSerializadoUtil.gravaPessoaSerializado(2, tipoPessoa, usar, endereco);
 
 			if (finalizar) {
-				System.out.println("Cadastro realizado com êxito.");
+				System.out.println("Cadastro realizado com Ãªxito.");
 			}
 
 		} else if (tipoPessoa == 2) {
@@ -91,7 +91,7 @@ public class Increment {
 			boolean finalizar = ArquivoSerializadoUtil.gravaPessoaSerializado(2, tipoPessoa, usar, endereco);
 
 			if (finalizar) {
-				System.out.println("Cadastro realizado com êxito.");
+				System.out.println("Cadastro realizado com Ãªxito.");
 			}
 
 		}
