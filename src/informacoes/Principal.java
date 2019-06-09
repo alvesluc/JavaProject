@@ -16,27 +16,29 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		//Inicialização de variáveis globais.
+		//InicializaÃ§Ã£o de variÃ¡veis globais.
 		float contaTotal = 0;
 		String categoria = "";
+		int verif;
 
 		Scanner leitor = new Scanner(System.in);
 
-		System.out.println("Bem Vindo ao CyberCafé!");
+		System.out.println("Bem Vindo ao CyberCafÃ©!");
 		
-		int verif = Usuario.fazerLogin();
 		
-		if(verif == 1) {
-			System.out.println("Login realizado com sucesso!\n");
+		do {
+			verif = Usuario.fazerLogin();
+			if(verif == 1) {
+				
+				System.out.println("Login realizado com sucesso!\n");
 					
 			String opcaoMenu;
 			do {
-				
 				System.out.println(
-						"Qual Função deseja ultilizar?" + 
+						"Qual FunÃ§Ã£o deseja ultilizar?" + 
 						"\n*------------MENU-------------*" +
-						"\n|1 - Ir às compras	      |" +
-						"\n|2 - Cadastros    	      |" +
+						"\n|1 - Ir Ã s compras	      |" +
+						"\n|2 - InformaÃ§Ãµes    	      |" +
 						"\n|3 - Reabastecimento 	      |" +
 						"\n|0 - Sair		      |"+
 						"\n*-----------------------------*");
@@ -54,22 +56,23 @@ public class Principal {
 					break;
 				case "2":
 					System.out.println(
-							"\nQual função deseja utilizar?" + 
+							"\nQual funÃ§Ã£o deseja utilizar?" + 
 							"\n*------------MENU-------------*" +
 							"\n|1 - Adicionar	              |" +
 							"\n|2 - Remover    	      |" +
 							"\n|3 - Alterar 	              |" +
 							"\n|4 - Listar                   |"+
+							"\n|5 - Ultima compra|"+
 							"\n|0 - Sair		      |"+
 							"\n*-----------------------------*");
 
-					System.out.println("O que você deseja fazer?");
+					System.out.println("O que vocÃª deseja fazer?");
 					int opcaoFuncao = (int) Integer.parseInt(leitor.nextLine());
 					
 					switch (opcaoFuncao) {
 					case 1:
 						System.out.println(
-								"O que você deseja adcionar?" + 
+								"O que vocÃª deseja adcionar?" + 
 								"\n*------------MENU-------------*" +
 								"\n|1 - Produto	              |" +
 								"\n|2 - Categoria    	      |" +
@@ -93,19 +96,20 @@ public class Principal {
 							System.out.println("Voltando para o menu...");
 							break;
 						}else {
-							System.out.println("Opção inválida!");
+							System.out.println("OpÃ§Ã£o invÃ¡lida!");
 						}
 						
 						break;
 					case 2:
 						System.out.println(
-								"O que você deseja remover?" + 
+								"O que vocÃª deseja remover?" + 
 								"\n*------------MENU-------------*" +
 								"\n|1 - Produto	              |" +
 								"\n|2 - Categoria    	      |" +
 								"\n|3 - Cliente 	              |" +
 								"\n|4 - Fornecedor		      |"+
-								"\n|0 - Sair		        |"+
+								"\n|5 - Gerar lucro           |"+
+								"\n|0 - Sair		        |" +
 								"\n*-----------------------------*");
 
 						opcaoFuncao = (int) Integer.parseInt(leitor.nextLine());
@@ -129,45 +133,45 @@ public class Principal {
 							
 						}else if(opcaoFuncao == 2) {
 							ListaCategoria.listaCategoria();
-							System.out.println("Informe a categoria que será removida: ");
+							System.out.println("Informe a categoria que serÃ¡ removida: ");
 							String categoriaR = leitor.nextLine();
 							RemoveCategoria.removeCategoria(categoriaR);
 							
 						}else if(opcaoFuncao == 3) {
 
-							System.out.println("O cliente a ser alterado é identificado por: "
+							System.out.println("O cliente a ser alterado Ã© identificado por: "
 									+ "\n1 - CPF"
 									+ "\n2 - CNPJ");
 							int documento = (int) Integer.parseInt(leitor.nextLine());
 							if (documento == 1) {
 								ListaInfo.listaInfoCPF();
-								System.out.println("Informe o CPF do cliente que você deseja alterar as informações.");
+								System.out.println("Informe o CPF do cliente que vocÃª deseja alterar as informaÃ§Ãµes.");
 								String cpf = leitor.nextLine();
 								RemovePessoa.removePessoaF(cpf);
 								
 							}else if (documento == 2) {
 								ListaInfo.listaInfoCNPJ();
-								System.out.println("Informe o CNPJ do cliente que você deseja ver as informações.");
+								System.out.println("Informe o CNPJ do cliente que vocÃª deseja ver as informaÃ§Ãµes.");
 								String cnpj = leitor.nextLine();
 								RemovePessoa.removePessoaJ(cnpj);
 							}
 							
 						}else if(opcaoFuncao == 4) {
 							Fornecedor.listaFornecedores();
-							System.out.println("Informe o fornecedor que será removido: ");
+							System.out.println("Informe o fornecedor que serÃ¡ removido: ");
 							String fornecedorR = leitor.nextLine();
 							Fornecedor.removeFornecedor(fornecedorR);
 						}else if(opcaoFuncao == 0) {
 							System.out.println("Voltando para o menu...");
 							break;
 						}else {
-							System.out.println("Opção inválida!");
+							System.out.println("OpÃ§Ã£o invÃ¡lida!");
 						}
 						
 						break;
 					case 3:
 						System.out.println(
-								"O que você deseja alterar?" + 
+								"O que vocÃª deseja alterar?" + 
 								"\n*------------MENU-------------*" +
 								"\n|1 - Produto	              |" +
 								"\n|2 - Categoria    	      |" +
@@ -187,19 +191,19 @@ public class Principal {
 							String categoriaA = leitor.nextLine();
 							AlteraCategoria.alteraCategoria(categoriaA);
 						}else if(opcaoFuncao == 3) {
-							System.out.println("O cliente a ser alterado é identificado por: "
+							System.out.println("O cliente a ser alterado Ã© identificado por: "
 									+ "\n1 - CPF"
 									+ "\n2 - CNPJ");
 							int documento = (int) Integer.parseInt(leitor.nextLine());
 							if (documento == 1) {
 								ListaInfo.listaInfoCPF();
-								System.out.println("Informe o CPF do cliente que você deseja alterar as informações.");
+								System.out.println("Informe o CPF do cliente que vocÃª deseja alterar as informaÃ§Ãµes.");
 								String cpf = leitor.nextLine();
 								AlteraPessoa.alteraPessoaF(cpf);
 								
 							}else if (documento == 2) {
 								ListaInfo.listaInfoCNPJ();
-								System.out.println("Informe o CNPJ do cliente que você deseja ver as informações.");
+								System.out.println("Informe o CNPJ do cliente que vocÃª deseja ver as informaÃ§Ãµes.");
 								String cnpj = leitor.nextLine();
 								AlteraPessoa.alteraPessoaJ(cnpj);
 								
@@ -215,13 +219,13 @@ public class Principal {
 							System.out.println("Voltando para o menu...");
 							break;
 						}else {
-							System.out.println("Opção inválida!");
+							System.out.println("OpÃ§Ã£o invÃ¡lida!");
 						}
 						
 						break;
 					case 4:
 						System.out.println(
-								"O que você deseja listar?" + 
+								"O que vocÃª deseja listar?" + 
 								"\n*------------MENU-------------*" +
 								"\n|1 - Produtos	              |" +
 								"\n|2 - Categorias    	      |" +
@@ -230,7 +234,7 @@ public class Principal {
 								"\n|0 - Sair		      |"+
 								"\n*-----------------------------*");
 
-						System.out.println("O que você deseja fazer?");
+						System.out.println("O que vocÃª deseja fazer?");
 						opcaoFuncao = (int) Integer.parseInt(leitor.nextLine());
 						if(opcaoFuncao == 1) {
 							
@@ -247,7 +251,7 @@ public class Principal {
 							}
 
 						}else if(opcaoFuncao == 2) {
-							System.out.println("Essas são as categorias existentes:\n");
+							System.out.println("Essas sÃ£o as categorias existentes:\n");
 							ListaCategoria.listaCategoria();
 						}else if(opcaoFuncao == 3) {
 							System.out.println("Escolha o identificador do cliente: "
@@ -256,29 +260,29 @@ public class Principal {
 							int documento = (int) Integer.parseInt(leitor.nextLine());
 							if (documento == 1) {
 								ListaInfo.listaInfoCPF();
-								System.out.println("Informe o CPF do cliente que você deseja ver as informações.");
+								System.out.println("Informe o CPF do cliente que vocÃª deseja ver as informaÃ§Ãµes.");
 								String cpf = leitor.nextLine();
 								ListaPessoa.listaPF(cpf);
 							}else if (documento == 2) {
 								ListaInfo.listaInfoCNPJ();
-								System.out.println("Informe o CNPJ do cliente que você deseja ver as informações.");
+								System.out.println("Informe o CNPJ do cliente que vocÃª deseja ver as informaÃ§Ãµes.");
 								String cnpj = leitor.nextLine();
 								ListaPessoa.listaPJ(cnpj);
 							}
 						}else if(opcaoFuncao == 4) {
-							System.out.println("Esses são os fornecedores existentes:\n");
+							System.out.println("Esses sÃ£o os fornecedores existentes:\n");
 							Fornecedor.listaFornecedores();
 						}else if(opcaoFuncao == 0) {
 							System.out.println("Voltando para o menu...");
 							break;
 						}else {
-							System.out.println("Opção inválida!");
+							System.out.println("OpÃ§Ã£o invÃ¡lida!");
 						}
 					case 0:	
 						System.out.println("\nVoltando ao menu principal...");
 						break;
 					default:
-						System.out.println("Opção inválida!");
+						System.out.println("OpÃ§Ã£o invÃ¡lida!");
 						break;
 					}
 					
@@ -288,13 +292,13 @@ public class Principal {
 					break;
 
 				case "0":
-					System.out.println("Você saiu.");
+					System.out.println("VocÃª saiu.");
 
 					break;
 
 				default:
 
-					System.out.println("Opção inválida!");
+					System.out.println("OpÃ§Ã£o invÃ¡lida!");
 					break;
 				}
 			} while (!opcaoMenu.equals("0"));
@@ -302,9 +306,9 @@ public class Principal {
 		
 		}
 		else {
-			System.out.println("Credenciais inválidas!");
+			System.out.println("Credenciais invÃ¡lidas!");
 		}
-		
+		}while(verif != 1);
 		leitor.close();
 	}
 }
