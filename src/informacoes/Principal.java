@@ -53,6 +53,8 @@ public class Principal {
 					contaTotal = contaTotal + SystemVenda.vender(categoria);
 					System.out.println("A conta final foi: " + contaTotal);
 					Operacoes.totalCaixa(contaTotal);
+					Operacoes.valorCaixa();
+					Operacoes.gerarLucro(contaTotal);
 					break;
 				case "2":
 					System.out.println(
@@ -62,7 +64,7 @@ public class Principal {
 							"\n|2 - Remover    	      |" +
 							"\n|3 - Alterar 	              |" +
 							"\n|4 - Listar                   |"+
-							"\n|5 - Ultima compra|"+
+							"\n|5 - Lucro total              |"+
 							"\n|0 - Sair		      |"+
 							"\n*-----------------------------*");
 
@@ -176,7 +178,7 @@ public class Principal {
 								"\n|1 - Produto	              |" +
 								"\n|2 - Categoria    	      |" +
 								"\n|3 - Cliente 	              |" +
-								"\n|4 - Fornecedor		      |"+
+								"\n|4 - Fornecedor		     |"+
 								"\n|0 - Sair		       |"+
 								"\n*-----------------------------*");
 
@@ -278,6 +280,9 @@ public class Principal {
 						}else {
 							System.out.println("Opção inválida!");
 						}
+					case 5:
+						Operacoes.mostraLucro();
+						break;
 					case 0:	
 						System.out.println("\nVoltando ao menu principal...");
 						break;
@@ -288,7 +293,9 @@ public class Principal {
 					
 					break;
 				case "3":
-					Fornecedor.compraFornecedor();
+					float gasto = Fornecedor.compraFornecedor();
+					gasto = gasto * -1;
+					Operacoes.gerarLucro(gasto);
 					break;
 
 				case "0":
