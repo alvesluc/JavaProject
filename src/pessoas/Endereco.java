@@ -10,7 +10,7 @@ public class Endereco implements Serializable {
 	private String rua;
 	private String cep;
 	private String bairro;
-	private short numero;
+	private String numero;
 	private String complemento;
 	private String cidade;
 	private String uf;
@@ -33,10 +33,10 @@ public class Endereco implements Serializable {
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
-	public short getNumero() {
+	public String getNumero() {
 		return numero;
 	}
-	public void setNumero(short numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 	public String getComplemento() {
@@ -58,7 +58,7 @@ public class Endereco implements Serializable {
 		this.uf = uf;
 	}
 	
-	public void indruzirEndereco(String uf, String cidade, String rua, String bairro, short numero, String cep, String complemento) {
+	public void indruzirEndereco(String uf, String cidade, String rua, String bairro, String numero, String cep, String complemento) {
 		
 		this.uf = uf;
 		this.cidade = cidade;
