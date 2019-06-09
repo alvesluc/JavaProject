@@ -29,47 +29,49 @@ public class AlteraProd extends Produto {
 				ListaProd.listar(categoria, id);
 			}
 			
-			System.out.println("Informe o ID do arquivo que você deseja alterar: ");
+			System.out.println("Informe o ID do arquivo que vocÃª deseja alterar: ");
 			String idLeitura = leitor.nextLine();
 
 			Produto produtoLeitura = (Produto) ArquivoSerializadoUtilInformacoes.lerArquivoSerializado(categoria, idLeitura);
 			Produto produtoAlterado = produtoLeitura;
 			System.out.println("ID:         " + produtoLeitura.getId());
 			System.out.println("Nome:       " + produtoLeitura.getNome());
-			System.out.println("Preço:      " + produtoLeitura.getPrecovenda());
+			System.out.println("PreÃ§o:      " + produtoLeitura.getPrecovenda());
 			System.out.println("Quantidade: " + produtoLeitura.getQtde_estoque());
 
-			System.out.println("Alterar o arquivo " + produtoLeitura.getNome() + " ? (S/N)");
+			System.out.println("Alterar o arquivo " + produtoLeitura.getNome() + " ?"
+					+ "\n1- Sim"
+					+ "\n2- NÃ£o");
 
 			opcao = leitor.nextLine();
 			opcao = opcao.toUpperCase();
 
-			if (opcao.equals("S") || opcao.equals("SIM") || opcao.equals("SS")) {
+			if (opcao.equals("1")) {
 				
-				System.out.println("Qual das seguintes informações você deseja alterar?" + "\n1- NOME"
-						+ "\n2- PREÇO" + "\n3- QUANTIDADE");
+				System.out.println("Qual das seguintes informaÃ§Ãµes vocÃª deseja alterar?" + "\n1- NOME"
+						+ "\n2- PREÃ‡O" + "\n3- QUANTIDADE");
 				x = Integer.parseInt(leitor.nextLine());
 				switch (x) {
 				case 1:
-					System.out.println("O nome atual é: " + produtoLeitura.getNome() + "\n" + "Insira o novo nome: ");
+					System.out.println("O nome atual Ã©: " + produtoLeitura.getNome() + "\n" + "Insira o novo nome: ");
 					String nome = leitor.nextLine();
 					produtoAlterado.setNome(nome);
 					System.out.println("Novo nome: " + produtoAlterado.getNome());
 					break;
 				case 2:
-					System.out.println("O preço atual é: " + produtoLeitura.getPrecovenda() + "\n" + "Insira o novo preço: ");
+					System.out.println("O preÃ§o atual Ã©: " + produtoLeitura.getPrecovenda() + "\n" + "Insira o novo preÃ§o: ");
 					float precovenda = Float.parseFloat(leitor.nextLine());
 					produtoAlterado.setPrecovenda(precovenda);
-					System.out.println("Novo preço: " + produtoAlterado.getPrecovenda());
+					System.out.println("Novo preÃ§o: " + produtoAlterado.getPrecovenda());
 					break;
 				case 3:
-					System.out.println("O quantidade atual é: " + produtoLeitura.getQtde_estoque() + "\n" + "Insira o novo quantidade: ");
+					System.out.println("O quantidade atual Ã©: " + produtoLeitura.getQtde_estoque() + "\n" + "Insira o novo quantidade: ");
 					int qtde_estoque = Integer.parseInt(leitor.nextLine());
 					produtoAlterado.setQtde_estoque(qtde_estoque);
 					System.out.println("Novo quantidade: " + produtoAlterado.getQtde_estoque());
 					break;
 				default:
-					System.out.println("Por favor, selecione uma opção válida.");
+					System.out.println("Por favor, selecione uma opÃ§Ã£o vÃ¡lida.");
 					x = 0;
 					break;
 				}
@@ -78,12 +80,11 @@ public class AlteraProd extends Produto {
 				if (gravou) {
 					System.out.println("Produto alterado com sucesso!");
 				} else {
-					System.out.println("O produto não foi alterado.");
+					System.out.println("O produto nÃ£o foi alterado.");
 				}
 			}
 
-		} while (opcao.equals("N") || opcao.equals("NAO") || opcao.equals("NO") || opcao.equals("NÃO")
-				|| opcao.equals("Ñ"));
+		} while (opcao.equals("2"));
 	}
 
 }
