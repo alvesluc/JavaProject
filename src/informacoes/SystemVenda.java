@@ -64,7 +64,4 @@ public class SystemVenda {
 		return totalConta;
 	}
 	
-	public static void comprar(String categoria) {
-		
-	}
 }
