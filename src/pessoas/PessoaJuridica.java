@@ -19,7 +19,7 @@ public class PessoaJuridica extends Pessoa {
 	
 
 	public String indruzirDados(int id, String nome, String email, String celular, String uf, String cidade,
-			String rua, String bairro, short numero, String cep, String complemento) {
+			String rua, String bairro, String numero, String cep, String complemento) {
 		// TODO Auto-generated method stub
 		
 		Scanner logar = new Scanner(System.in);
