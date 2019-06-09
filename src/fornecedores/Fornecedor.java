@@ -85,7 +85,7 @@ public class Fornecedor {
 
 	}
 
-	public static void compraFornecedor() {
+	public static float compraFornecedor() {
 
 		Caixa caixaLoja = (Caixa) ArquivoSerializadoUtil.lerCaixaSerializado();
 		float disponivel = caixaLoja.getDinheirocaixa();
@@ -161,7 +161,7 @@ public class Fornecedor {
 			}
 			
 		}
-
+		return totalPreco;
 	}
 
 }
